@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<casas>
+    <casa ciudad="Jaén" tipo="adosado" metrosCuadrados="300" plantas="2" habitaciones="7" zonasComunes="false"/>
+    <casa ciudad="Andújar" tipo="unifamiliar" metrosCuadrados="200" plantas="1" habitaciones="5" zonasComunes="false"/>
+    <casa ciudad="Linares" tipo="piso" metrosCuadrados="90" plantas="1" habitaciones="4" zonasComunes="true"/>
+</casas>

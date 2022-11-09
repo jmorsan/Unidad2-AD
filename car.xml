@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coches>
+    <coche>
+        <marca>Volkswagen</marca>
+        <modelo>Polo</modelo>
+        <motor>
+            <revoluciones>1500</revoluciones>
+            <tipo>diesel</tipo>
+        </motor>
+        <puertas>5</puertas>
+        <kilometros>200000</kilometros>
+    </coche>
+    <coche>
+        <marca>Hyundai</marca>
+        <modelo>Tucson</modelo>
+        <motor>
+            <revoluciones>2000</revoluciones>
+            <tipo>gasolina</tipo>
+        </motor>
+        <puertas>5</puertas>
+        <kilometros>250000</kilometros>
+    </coche>
+
+</coches>
