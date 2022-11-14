@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<alumnos>
+	<alumno nombre="Fulanito" edad="20">
+		<calificacion>8.5</calificacion><unidadesPendientes>true</unidadesPendientes>
+	</alumno>
+
+	<alumno nombre="Menganito" edad="21">
+		<calificacion>7.4</calificacion><unidadesPendientes>false</unidadesPendientes>
+	</alumno>
+
+	<alumno nombre="Zutanito" edad="19">
+		<calificacion>6.9</calificacion><unidadesPendientes>false</unidadesPendientes>
+	</alumno>
+
+	<alumno nombre="Alberto" edad="26">
+    	<calificacion>6</calificacion><unidadesPendientes>true</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Gerbasio" edad="28">
+    	<calificacion>7.4</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Abdul" edad="30">
+    	<calificacion>2.9</calificacion><unidadesPendientes>true</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Mario" edad="18">
+        <calificacion>5.5</calificacion><unidadesPendientes>true</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Joaquín" edad="28">
+        <calificacion>9.9</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="David" edad="20">
+        <calificacion>4.4975</calificacion><unidadesPendientes>true</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Neil" edad="20">
+        <calificacion>10</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Paco" edad="69">
+        <calificacion>5</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Manuel" edad="19">
+        <calificacion>6.9</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Daniel" edad="25">
+        <calificacion>6.4</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Almudena" edad="21">
+        <calificacion>7.7</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Marta" edad="24">
+        <calificacion>6.9</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Fulanito" edad="20">
+        <calificacion>8.5</calificacion><unidadesPendientes>true</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Menganito" edad="21">
+        <calificacion>7.4</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Zutanito" edad="19">
+        <calificacion>6.9</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Fulanito" edad="20">
+        <calificacion>8.5</calificacion><unidadesPendientes>true</unidadesPendientes>
+    </alumno>
+
+    <alumno nombre="Menganito" edad="21">
+        <calificacion>7.4</calificacion><unidadesPendientes>false</unidadesPendientes>
+    </alumno>
+
+</alumnos>

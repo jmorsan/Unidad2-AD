@@ -1,0 +1,13 @@
+Nombre: Aa, Edad: 22, Calificacion: 6.8, Unidades Pendientes: false
+Nombre: Ac, Edad: 18, Calificacion: 6.5, Unidades Pendientes: false
+Nombre: Bb, Edad: 23, Calificacion: 6.4, Unidades Pendientes: false
+Nombre: Ca, Edad: 22, Calificacion: 5.9, Unidades Pendientes: false
+Nombre: Cb, Edad: 16, Calificacion: 5.3, Unidades Pendientes: false
+Nombre: Da, Edad: 17, Calificacion: 7.2, Unidades Pendientes: false
+Nombre: Ea, Edad: 22, Calificacion: 7.4, Unidades Pendientes: false
+Nombre: Eb, Edad: 24, Calificacion: 9.9, Unidades Pendientes: false
+Nombre: Ec, Edad: 18, Calificacion: 9.4, Unidades Pendientes: false
+Nombre: Fa, Edad: 22, Calificacion: 6.8, Unidades Pendientes: false
+Nombre: Ga, Edad: 22, Calificacion: 6.8, Unidades Pendientes: false
+Nombre: Menganito, Edad: 21, Calificacion: 7.4, Unidades Pendientes: false
+Nombre: Zutanito, Edad: 19, Calificacion: 6.9, Unidades Pendientes: false

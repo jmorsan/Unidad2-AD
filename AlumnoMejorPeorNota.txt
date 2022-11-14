@@ -1,0 +1,4 @@
+Peor Alumno:
+Nombre: Fc, Edad: 21, Calificacion: 1.8, Unidades Pendientes: true
+Mejor Alumno:
+Nombre: Eb, Edad: 24, Calificacion: 9.9, Unidades Pendientes: false
