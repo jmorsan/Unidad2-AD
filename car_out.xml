@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<coches>
+  <coche>
+    <marca>bmw</marca>
+    <modelo>m2</modelo>
+    <puertas>5</puertas>
+    <kilometros>30000</kilometros>
+    <motor>
+      <revoluciones>30000</revoluciones>
+      <tipo>diesel</tipo>
+    </motor>
+  </coche>
+  <coche>
+    <marca>ford</marca>
+    <modelo>mustang</modelo>
+    <puertas>3</puertas>
+    <kilometros>0</kilometros>
+    <motor>
+      <revoluciones>13000</revoluciones>
+      <tipo>gasolina</tipo>
+    </motor>
+  </coche>
+</coches>
