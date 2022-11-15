@@ -144,43 +144,58 @@ public class Tarea {
         try {
             fileWriter = new FileWriter("AlumnoMediaEdad.txt");
             printWriter = new PrintWriter(fileWriter);
-            int contador = 0;
+
             int edadTotal = 0;
             for(int i=0; i<listaAlumnos.size();i++)
             {
-                contador++;
+
                 edadTotal += listaAlumnos.get(i).getEdad();
 
 
             }
-            printWriter.println("Media de edad : "+edadTotal/contador);
+            printWriter.println("Media de edad : "+edadTotal/ listaAlumnos.size());
 
             printWriter.flush();
 
-        } catch (FileNotFoundException fileNotFoundException) {
+        }
+        catch (FileNotFoundException fileNotFoundException)
+        {
             fileNotFoundException.printStackTrace();
-        } catch (IOException ioException) {
+
+        }
+        catch (IOException ioException)
+        {
             ioException.printStackTrace();
-        } finally {
-            if (fileWriter != null) {
-                try {
+
+        }
+        finally
+        {
+            if (fileWriter != null)
+            {
+                try
+                {
                     fileWriter.close();
-                } catch (IOException ioException) {
+                }
+                catch (IOException ioException)
+                {
                     ioException.printStackTrace();
                 }
             }
 
-            if (printWriter != null) {
+            if (printWriter != null)
+            {
                 printWriter.close();
             }
         }
     }
 
-    private static void alumnosNotaMedia(List<Alumno>listaAlumnos) {
+    private static void alumnosNotaMedia(List<Alumno>listaAlumnos)
+    {
         FileWriter fileWriter = null;
         PrintWriter printWriter = null;
 
-        try {
+        try
+        {
             fileWriter = new FileWriter("AlumnoMediaNota.txt");
             printWriter = new PrintWriter(fileWriter);
 
@@ -196,13 +211,21 @@ public class Tarea {
 
             printWriter.flush();
 
-        } catch (FileNotFoundException fileNotFoundException) {
+        }
+        catch (FileNotFoundException fileNotFoundException)
+        {
             fileNotFoundException.printStackTrace();
-        } catch (IOException ioException) {
+        }
+        catch (IOException ioException)
+        {
             ioException.printStackTrace();
-        } finally {
-            if (fileWriter != null) {
-                try {
+        }
+        finally
+        {
+            if (fileWriter != null)
+            {
+                try
+                {
                     fileWriter.close();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
