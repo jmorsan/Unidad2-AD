@@ -1,5 +1,7 @@
 package ies.jms.tr16;
 
+import ies.jms.tr20.WriteXml;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -51,6 +53,14 @@ public class Tarea {
             alumnosMaxMinNota(listaAlumnos);
             alumnosEdadMedia(listaAlumnos);
             alumnosNotaMedia(listaAlumnos);
+
+
+
+            WriteXml writeXml = new WriteXml();
+
+            writeXml.crearXml(listaAlumnos);
+
+
 
 
         }

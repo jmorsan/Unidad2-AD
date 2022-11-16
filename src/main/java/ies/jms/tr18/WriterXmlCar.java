@@ -1,6 +1,6 @@
 package ies.jms.tr18;
 
-import ies.jms.tr16.Alumno;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -20,16 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class WriterXmlCar {
+public class WriterXmlCar
+{
 
     private List<Coche> listaCoches;
 
-    public WriterXmlCar() {
+    public WriterXmlCar()
+    {
         this.listaCoches = new ArrayList<Coche>();
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         WriterXmlCar writeXml = new WriterXmlCar();
 
         writeXml.menu();
@@ -37,8 +40,8 @@ public class WriterXmlCar {
     }
 
 
-
-    private void menu(){
+    private void menu()
+    {
         Scanner scanner = new Scanner(System.in);
 
         String marca;
@@ -49,12 +52,15 @@ public class WriterXmlCar {
         String tipoMotor;
         int opcion;
         boolean ok =true;
-        do {
+        do
+        {
             ok = true;
 
-            try {
+            try
+            {
 
-                do {
+                do
+                {
                     System.out.println("Crear un coche nuevo?:");
                     System.out.println("1- SI");
                     System.out.println("0- Salir");
@@ -62,7 +68,8 @@ public class WriterXmlCar {
                     opcion = Integer.parseInt(scanner.nextLine());
 
 
-                    switch (opcion) {
+                    switch (opcion)
+                    {
 
                         case 1:
                             System.out.println("Introduzca marca ");
@@ -111,17 +118,20 @@ public class WriterXmlCar {
 
 
             }
-        }while(!ok);
+        }
+        while(!ok);
     }
 
-    private  void createNewCar(String marca,String modelo,String puertas,int kilometros,int revoluciones,String tipoMotor){
+    private  void createNewCar(String marca,String modelo,String puertas,int kilometros,int revoluciones,String tipoMotor)
+    {
         Coche coche = new Coche(marca, modelo, puertas, kilometros,new Motor(revoluciones,tipoMotor));
 
         listaCoches.add(coche);
 
     }
 
-    private void writeXml(List<Coche>listaCoches){
+    private void writeXml(List<Coche>listaCoches)
+    {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         FileOutputStream outputStream = null;
 
@@ -135,10 +145,9 @@ public class WriterXmlCar {
 
             Element carsElement = document.createElement("coches");
 
-            document.appendChild(carsElement);
 
-
-            for(Coche coche:listaCoches){
+            for(Coche coche:listaCoches)
+            {
                 Element carElement = document.createElement("coche");
 
                 Element carMarkElement = document.createElement("marca");
@@ -174,6 +183,8 @@ public class WriterXmlCar {
                 carsElement.appendChild(carElement);
 
             }
+
+            document.appendChild(carsElement);
 
             writeXml(document,outputStream);
 
