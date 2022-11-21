@@ -1,0 +1,27 @@
+[
+  {
+    "marca" : "Volswagen",
+    "modelo" : "Polo",
+    "motor" :
+    {
+      "revoluciones" : 1500,
+      "tipo" : "diesel"
+    },
+    "puertas" : 5,
+    "kilometros" : 20000
+
+  },
+
+  {
+    "marca" : "BMW",
+    "modelo" : "Q3",
+    "motor" :
+    {
+      "revoluciones" : 8000,
+      "tipo" : "Gasofa"
+    },
+    "puertas" : 3,
+    "kilometros" : 35000
+
+  }
+]
