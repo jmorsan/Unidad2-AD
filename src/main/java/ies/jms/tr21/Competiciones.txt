@@ -1,0 +1,16 @@
+COMPETICIONES FEMENINAS
+=======================================
+ID: 37, Season ID: 90, Country Name: England, Competition Name: FA Women's Super League, Competition Gender: female, Competition Youth: false, Competition International: false, Season Name: 2020/2021, Match Updated: 2021-07-01T18:14:40.756, Match Updated 360: 2021-06-13T16:17:31.694, Match Available: 2021-07-01T18:14:40.756, Match Available 360: 
+ID: 37, Season ID: 42, Country Name: England, Competition Name: FA Women's Super League, Competition Gender: female, Competition Youth: false, Competition International: false, Season Name: 2019/2020, Match Updated: 2021-06-01T13:01:18.188, Match Updated 360: 2021-06-13T16:17:31.694, Match Available: 2021-06-01T13:01:18.188, Match Available 360: 
+ID: 37, Season ID: 4, Country Name: England, Competition Name: FA Women's Super League, Competition Gender: female, Competition Youth: false, Competition International: false, Season Name: 2018/2019, Match Updated: 2022-05-27T12:02:24.272045, Match Updated 360: 2021-06-13T16:17:31.694, Match Available: 2022-05-27T12:02:24.272045, Match Available 360: 
+ID: 49, Season ID: 3, Country Name: United States of America, Competition Name: NWSL, Competition Gender: female, Competition Youth: false, Competition International: false, Season Name: 2018, Match Updated: 2021-11-06T05:53:29.435016, Match Updated 360: 2021-06-13T16:17:31.694, Match Available: 2021-11-06T05:53:29.435016, Match Available 360: 
+ID: 72, Season ID: 30, Country Name: International, Competition Name: Women's World Cup, Competition Gender: female, Competition Youth: false, Competition International: true, Season Name: 2019, Match Updated: 2020-07-29T05:00, Match Updated 360: 2021-06-13T16:17:31.694, Match Available: 2020-07-29T05:00, Match Available 360: 
+
+COMPETICIONES EN EUROPA E INTERNACIONALES
+=======================================
+ID: 55, Season ID: 43, Country Name: Europe, Competition Name: UEFA Euro, Competition Gender: male, Competition Youth: false, Competition International: true, Season Name: 2020, Match Updated: 2022-02-01T17:20:34.319496, Match Updated 360: 2021-11-11T13:54:37.507376, Match Available: 2022-02-01T17:20:34.319496, Match Available 360: 2021-11-11T13:54:37.507376
+
+COMPETICIONES CON PARTIDOS DISPONIBLES
+=======================================
+ID: 11, Season ID: 90, Country Name: Spain, Competition Name: La Liga, Competition Gender: male, Competition Youth: false, Competition International: false, Season Name: 2020/2021, Match Updated: 2022-02-11T14:56:09.076, Match Updated 360: 2021-10-30T04:19:36.116600, Match Available: 2022-02-11T14:56:09.076, Match Available 360: 2021-09-17T15:18:33.787790
+ID: 55, Season ID: 43, Country Name: Europe, Competition Name: UEFA Euro, Competition Gender: male, Competition Youth: false, Competition International: true, Season Name: 2020, Match Updated: 2022-02-01T17:20:34.319496, Match Updated 360: 2021-11-11T13:54:37.507376, Match Available: 2022-02-01T17:20:34.319496, Match Available 360: 2021-11-11T13:54:37.507376
