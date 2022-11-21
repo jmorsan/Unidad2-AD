@@ -1,6 +1,6 @@
 package ies.jms.tr21;
 
-import org.joda.time.DateTime;
+
 
 public class Competition {
     private int competitionId;
@@ -11,12 +11,13 @@ public class Competition {
     private boolean competitionYouth;
     private boolean competitionInternational;
     private String seasonName;
-    private DateTime matchUpdated;
-    private DateTime matchUpdated360;
-    private DateTime matchAvailable;
-    private DateTime matchAvailable360;
+    private String matchUpdated;
+    private String matchUpdated360;
+    private String matchAvailable;
+    private String matchAvailable360;
 
-    public Competition(int competitionId, int seasonId, String countryName, String competitionName, String competitionGender, boolean competitionYouth, boolean competitionInternational, String seasonName, DateTime matchUpdated, DateTime matchUpdated360, DateTime matchAvailable, DateTime matchAvailable360) {
+    public Competition(int competitionId, int seasonId, String countryName, String competitionName, String competitionGender, boolean competitionYouth, boolean competitionInternational,
+                       String seasonName, String matchUpdated, String matchAvailable360,String matchUpdated360, String matchAvailable ) {
         this.competitionId = competitionId;
         this.seasonId = seasonId;
         this.countryName = countryName;
@@ -95,35 +96,53 @@ public class Competition {
         this.seasonName = seasonName;
     }
 
-    public DateTime getMatchUpdated() {
+    public String getMatchUpdated() {
         return matchUpdated;
     }
 
-    public void setMatchUpdated(DateTime matchUpdated) {
+    public void setMatchUpdated(String matchUpdated) {
         this.matchUpdated = matchUpdated;
     }
 
-    public DateTime getMatchUpdated360() {
+    public String getMatchUpdated360() {
         return matchUpdated360;
     }
 
-    public void setMatchUpdated360(DateTime matchUpdated360) {
+    public void setMatchUpdated360(String matchUpdated360) {
         this.matchUpdated360 = matchUpdated360;
     }
 
-    public DateTime getMatchAvailable() {
+    public String getMatchAvailable() {
         return matchAvailable;
     }
 
-    public void setMatchAvailable(DateTime matchAvailable) {
+    public void setMatchAvailable(String matchAvailable) {
         this.matchAvailable = matchAvailable;
     }
 
-    public DateTime getMatchAvailable360() {
+    public String getMatchAvailable360() {
         return matchAvailable360;
     }
 
-    public void setMatchAvailable360(DateTime matchAvailable360) {
+    public void setMatchAvailable360(String matchAvailable360) {
         this.matchAvailable360 = matchAvailable360;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "ID: " + competitionId +
+                ", Season ID: " + seasonId +
+                ", Country Name: " + countryName +
+                ", Competition Name: " + competitionName +
+                ", Competition Gender: " + competitionGender +
+                ", Competition Youth: " + competitionYouth +
+                ", Competition International: " + competitionInternational +
+                ", Season Name: " + seasonName +
+                ", Match Updated: " + matchUpdated +
+                ", Match Updated 360: " + matchUpdated360 +
+                ", Match Available: " + matchAvailable +
+                ", Match Available 360: " + matchAvailable360
+                ;
     }
 }

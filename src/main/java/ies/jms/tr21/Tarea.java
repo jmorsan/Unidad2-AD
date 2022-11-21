@@ -3,7 +3,6 @@ package ies.jms.tr21;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.joda.time.DateTime;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -14,7 +13,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.util.ArrayList;
-
 import java.util.List;
 
 public class Tarea
@@ -25,6 +23,7 @@ public class Tarea
     {
         List<Competition> competitionList = new ArrayList<>();
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+
 
         try
         {
@@ -37,22 +36,31 @@ public class Tarea
             {
                 Element nodeCompetition = (Element) nodeListCompetition.item(l);
 
-                int competitionId = Integer.parseInt(nodeCompetition.getAttributes().getNamedItem("competition_id").getTextContent());
-                int seasonId = Integer.parseInt(nodeCompetition.getAttributes().getNamedItem("season_name").getTextContent());
-                String countryName = nodeCompetition.getAttributes().getNamedItem("country_name").getTextContent();
-                String competitionName = nodeCompetition.getAttributes().getNamedItem("competition_name").getTextContent();
-                String competitionGender = nodeCompetition.getAttributes().getNamedItem("competition_gender").getTextContent();
-                boolean competitionYouth = Boolean.parseBoolean(nodeCompetition.getAttributes().getNamedItem("competition_youth").getTextContent());
-                boolean competitionInternational = Boolean.parseBoolean(nodeCompetition.getAttributes().getNamedItem("competition_international").getTextContent());
-                String seasonName = nodeCompetition.getAttributes().getNamedItem("season_name").getTextContent();
-                DateTime matchUpdated = DateTime.parse(nodeCompetition.getAttributes().getNamedItem("match_updated").getTextContent());
-                DateTime matchUpdated360 = DateTime.parse(nodeCompetition.getAttributes().getNamedItem("match_updated_360").getTextContent());
-                DateTime matchAvailable360 = DateTime.parse(nodeCompetition.getAttributes().getNamedItem("match_available_360").getTextContent());
-                DateTime matchAvailable = DateTime.parse(nodeCompetition.getAttributes().getNamedItem("match_available").getTextContent());
+                int competitionId = Integer.parseInt(nodeCompetition.getElementsByTagName("competition_id").item(0).getTextContent());
+                int seasonId = Integer.parseInt(nodeCompetition.getElementsByTagName("season_id").item(0).getTextContent());
+                String countryName = nodeCompetition.getElementsByTagName("country_name").item(0).getTextContent();
+                String competitionName = nodeCompetition.getElementsByTagName("competition_name").item(0).getTextContent();
+                String competitionGender = nodeCompetition.getElementsByTagName("competition_gender").item(0).getTextContent();
+                boolean competitionYouth = Boolean.parseBoolean(nodeCompetition.getElementsByTagName("competition_youth").item(0).getTextContent());
+                boolean competitionInternational = Boolean.parseBoolean(nodeCompetition.getElementsByTagName("competition_international").item(0).getTextContent());
+                String seasonName = nodeCompetition.getElementsByTagName("season_name").item(0).getTextContent();
+                String matchUpdated = nodeCompetition.getElementsByTagName("match_updated").item(0).getTextContent();
+                String matchUpdated360 = nodeCompetition.getElementsByTagName("match_updated_360").item(0).getTextContent();
+                String matchAvailable = nodeCompetition.getElementsByTagName("match_available").item(0).getTextContent();
+                String matchAvailable360;
 
-                System.out.println(competitionId);
-                Competition competition = new Competition(competitionId,seasonId,competitionName,countryName,competitionGender,competitionYouth,
-                        competitionInternational,seasonName,matchUpdated,matchUpdated360,matchAvailable360,matchAvailable);
+                if(nodeCompetition.getElementsByTagName("match_available_360").item(0).getTextContent().equals(' '))
+                {
+                    matchAvailable360 = null;
+                }
+                else
+                {
+                    matchAvailable360 = nodeCompetition.getElementsByTagName("match_available_360").item(0).getTextContent();
+                }
+
+
+                Competition competition = new Competition(competitionId, seasonId, countryName, competitionName, competitionGender, competitionYouth, competitionInternational,
+                        seasonName, matchUpdated, matchAvailable360, matchUpdated360, matchAvailable);
 
                 competitionList.add(competition);
 
@@ -60,6 +68,8 @@ public class Tarea
             }
 
             CompetitionFilter(competitionList);
+
+
 
 
 
@@ -81,6 +91,7 @@ public class Tarea
             printWriter = new PrintWriter(fileWriter);
 
             printWriter.println("COMPETICIONES FEMENINAS");
+            printWriter.println("=======================================");
             for(Competition competition : competitionList){
                 if(competition.getCompetitionGender().equals("female"))
                 {
@@ -88,19 +99,23 @@ public class Tarea
                 }
             }
 
+            printWriter.println();
             printWriter.println("COMPETICIONES EN EUROPA E INTERNACIONALES");
+            printWriter.println("=======================================");
             for(Competition competition : competitionList)
             {
-                if(competition.getCountryName().equals("Europe")& competition.isCompetitionInternational())
+                if(competition.getCountryName().equals("Europe") && competition.isCompetitionInternational())
                 {
                     printWriter.println(competition);
                 }
             }
 
+            printWriter.println();
             printWriter.println("COMPETICIONES CON PARTIDOS DISPONIBLES");
+            printWriter.println("=======================================");
             for(Competition competition : competitionList)
             {
-                if(competition.getMatchAvailable360()==null)
+                if(competition.getMatchAvailable360()!= "")
                 {
                     printWriter.println(competition);
                 }
