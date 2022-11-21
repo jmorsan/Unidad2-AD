@@ -32,7 +32,7 @@ public class Tarea
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.parse(new File("src/main/java/ies/jms/tr21/competitions.xml"));
             Element rootElement = document.getDocumentElement();
-            NodeList nodeListCompetition= rootElement.getElementsByTagName("competition");
+            NodeList nodeListCompetition = rootElement.getElementsByTagName("competition");
             for(int l = 0; l < nodeListCompetition.getLength(); l++)
             {
                 Element nodeCompetition = (Element) nodeListCompetition.item(l);
@@ -50,7 +50,7 @@ public class Tarea
                 DateTime matchAvailable360 = DateTime.parse(nodeCompetition.getAttributes().getNamedItem("match_available_360").getTextContent());
                 DateTime matchAvailable = DateTime.parse(nodeCompetition.getAttributes().getNamedItem("match_available").getTextContent());
 
-
+                System.out.println(competitionId);
                 Competition competition = new Competition(competitionId,seasonId,competitionName,countryName,competitionGender,competitionYouth,
                         competitionInternational,seasonName,matchUpdated,matchUpdated360,matchAvailable360,matchAvailable);
 
