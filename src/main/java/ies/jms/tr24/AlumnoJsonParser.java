@@ -98,7 +98,7 @@ public class AlumnoJsonParser
             printWriter.println("COMPETICIONES EN EUROPA E INTERNACIONALES");
             printWriter.println("=======================================");
 
-
+            printWriter.println(notaMasAlta(listaAlumnos));
 
             printWriter.flush();
 
@@ -145,7 +145,7 @@ public class AlumnoJsonParser
 
         double notaMedia = notaMedia(listaAlumnos);
 
-        Alumno alumnoNotaMasCercana;
+        Alumno alumnoNotaMasCercana = new Alumno();
 
         double notaAuxiliar = Math.abs(listaAlumnos.get(0).getCalificacion()-notaMedia);
 

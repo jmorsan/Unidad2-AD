@@ -7,6 +7,10 @@ public class Alumno {
     private double calificacion;
     private boolean unidadesPendientes;
 
+    public Alumno() {
+
+    }
+
     public Alumno(String nombre, int edad, double calificacion, boolean unidadesPendientes) {
         this.nombre = nombre;
         this.edad = edad;
