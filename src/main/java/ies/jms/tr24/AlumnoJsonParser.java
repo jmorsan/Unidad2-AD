@@ -147,12 +147,17 @@ public class AlumnoJsonParser
 
         Alumno alumnoNotaMasCercana = new Alumno();
 
-        double notaAuxiliar = Math.abs(listaAlumnos.get(0).getCalificacion()-notaMedia);
 
-
+        System.out.println(notaMedia);
         for(Alumno alumno : listaAlumnos)
         {
-            if(Math.abs(alumno.getCalificacion()-notaMedia)<notaAuxiliar)
+            double nota1 = Math.abs(alumno.getCalificacion()-notaMedia);
+            double nota2 = Math.abs(alumnoNotaMasCercana.getCalificacion()-notaMedia);
+
+            System.out.println("Siguiente --> "+nota1 + " Nombre: "+ alumno.getNombre());
+            System.out.println("Nota guardada --> "+nota2 );
+
+            if(nota1<nota2)
             {
                 alumnoNotaMasCercana = alumno;
 

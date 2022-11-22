@@ -1,7 +1,7 @@
 ALUMNOS CON UNIDADES PENDIENTES
 =======================================
 Nombre: Gb, Edad: 23, Calificacion: 5.8, Unidades Pendientes: true
-Nombre: Fulanito, Edad: 20, Calificacion: 8.5, Unidades Pendientes: true
+Nombre: Fulanito, Edad: 20, Calificacion: 6.391304347826088, Unidades Pendientes: true
 Nombre: Fc, Edad: 21, Calificacion: 1.8, Unidades Pendientes: true
 Nombre: Fb, Edad: 220, Calificacion: 3.1, Unidades Pendientes: true
 Nombre: Dc, Edad: 25, Calificacion: 3.1, Unidades Pendientes: true
@@ -13,4 +13,4 @@ Nombre: Ab, Edad: 23, Calificacion: 6.7, Unidades Pendientes: true
 
 COMPETICIONES EN EUROPA E INTERNACIONALES
 =======================================
-Nombre: Aa, Edad: 22, Calificacion: 6.8, Unidades Pendientes: false
+Nombre: Fulanito, Edad: 20, Calificacion: 6.391304347826088, Unidades Pendientes: true

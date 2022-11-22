@@ -8,7 +8,7 @@ public class Alumno {
     private boolean unidadesPendientes;
 
     public Alumno() {
-
+        this.calificacion= 100;
     }
 
     public Alumno(String nombre, int edad, double calificacion, boolean unidadesPendientes) {
