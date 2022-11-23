@@ -1,0 +1,30 @@
+[ERROR] 2022-11-23 09:05:24.344 [main] AlumnoJsonParser - Error mientras se trataba de leer el fichero src/main/java/ies/jms/tr24/alumn.json
+[ERROR] 2022-11-23 09:06:31.894 [main] AlumnoJsonParser - Error mientras se trataba de leer el fichero src/main/java/ies/jms/tr24/alumn.json
+java.io.FileNotFoundException: src\main\java\ies\jms\tr24\alumn.json (El sistema no puede encontrar el archivo especificado)
+	at java.io.FileInputStream.open0(Native Method) ~[?:?]
+	at java.io.FileInputStream.open(FileInputStream.java:219) ~[?:?]
+	at java.io.FileInputStream.<init>(FileInputStream.java:158) ~[?:?]
+	at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388) ~[commons-io-2.11.0.jar:2.11.0]
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506) ~[commons-io-2.11.0.jar:2.11.0]
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2526) ~[commons-io-2.11.0.jar:2.11.0]
+	at ies.jms.tr24.AlumnoJsonParser.main(AlumnoJsonParser.java:32) ~[classes/:?]
+[ERROR] 2022-11-23 09:25:59.624 [main] AlumnoJsonParser - Error mientras se trataba de leer el fichero src/main/java/ies/jms/tr24/alumn.json
+java.io.FileNotFoundException: src\main\java\ies\jms\tr24\alumn.json (El sistema no puede encontrar el archivo especificado)
+	at java.io.FileInputStream.open0(Native Method) ~[?:?]
+	at java.io.FileInputStream.open(FileInputStream.java:219) ~[?:?]
+	at java.io.FileInputStream.<init>(FileInputStream.java:158) ~[?:?]
+	at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388) ~[commons-io-2.11.0.jar:2.11.0]
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506) ~[commons-io-2.11.0.jar:2.11.0]
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2526) ~[commons-io-2.11.0.jar:2.11.0]
+	at ies.jms.tr24.AlumnoJsonParser.startProcess(AlumnoJsonParser.java:47) ~[classes/:?]
+	at ies.jms.tr24.AlumnoJsonParser.main(AlumnoJsonParser.java:32) ~[classes/:?]
+[ERROR] 2022-11-23 09:30:02.187 [main] AlumnoJsonParser - Error mientras se trataba de leer el fichero src/main/java/ies/jms/tr24/alumn.json
+java.io.FileNotFoundException: src\main\java\ies\jms\tr24\alumn.json (El sistema no puede encontrar el archivo especificado)
+	at java.io.FileInputStream.open0(Native Method) ~[?:?]
+	at java.io.FileInputStream.open(FileInputStream.java:219) ~[?:?]
+	at java.io.FileInputStream.<init>(FileInputStream.java:158) ~[?:?]
+	at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388) ~[commons-io-2.11.0.jar:2.11.0]
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506) ~[commons-io-2.11.0.jar:2.11.0]
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2526) ~[commons-io-2.11.0.jar:2.11.0]
+	at ies.jms.tr24.AlumnoJsonParser.startProcess(AlumnoJsonParser.java:47) ~[classes/:?]
+	at ies.jms.tr24.AlumnoJsonParser.main(AlumnoJsonParser.java:32) ~[classes/:?]

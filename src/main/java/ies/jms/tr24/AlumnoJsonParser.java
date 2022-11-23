@@ -3,9 +3,11 @@ package ies.jms.tr24;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import ies.jms.tr16.Alumno;
-import ies.jms.tr21.Competition;
 import ies.jms.tr22.Json;
 import org.apache.commons.io.FileUtils;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,76 +20,99 @@ import java.util.List;
 
 public class AlumnoJsonParser
 {
+    private static final Logger LOGGER = LogManager.getLogger();
 
+    private List<Alumno> listaAlumnos = new ArrayList<Alumno>();
 
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args)
     {
-        String nombre = " ";
-        int edad = 0;
-        double calificacion = 0.0;
-        boolean unidadesPendientes = false;
+        AlumnoJsonParser alumnoJsonParser = new AlumnoJsonParser();
 
-
-        List<Alumno> listaAlumnos = new ArrayList<Alumno>();
-
-        String fileContent = FileUtils.readFileToString(new File("src/main/java/ies/jms/tr24/alumno.json"), "UTF-8");
-
-        JsonNode rootJsonNode = Json.mapper().readTree(fileContent);
-
-        if(rootJsonNode.isArray())
+        try
         {
-            ArrayNode rootArrayJsonNode = (ArrayNode) rootJsonNode;
-
-            final Iterator<JsonNode> iterator = rootArrayJsonNode.elements();
-            while (iterator.hasNext())
-
-            {
-                final JsonNode alumnoJsonNode = iterator.next();
-
-                if (alumnoJsonNode.has("nombre"))
-                {
-                    final JsonNode nombreNode = alumnoJsonNode.get("nombre");
-                    nombre = nombreNode.asText();
-                }
-
-                if (alumnoJsonNode.has("edad"))
-                {
-                    final JsonNode edadNode = alumnoJsonNode.get("edad");
-                    edad = Integer.parseInt(edadNode.asText());
-                }
-
-                if (alumnoJsonNode.has("calificacion"))
-                {
-                    final JsonNode calificacionNode = alumnoJsonNode.get("calificacion");
-                    calificacion = Double.parseDouble(calificacionNode.asText());
-                }
-
-                if (alumnoJsonNode.has("unidadesPendientes"))
-                {
-                    final JsonNode unidadesPendientesNode = alumnoJsonNode.get("unidadesPendientes");
-                    unidadesPendientes = Boolean.parseBoolean(unidadesPendientesNode.asText());
-                }
-
-                Alumno alumno = new Alumno(nombre,edad,calificacion,unidadesPendientes);
-                listaAlumnos.add(alumno);
-            }
+            alumnoJsonParser.startProcess();
         }
-        alumnoFilter(listaAlumnos);
+        catch (AlumnoException alumnoException)
+        {
+            alumnoException.printStackTrace();
+        }
+
     }
 
-    private static void alumnoFilter(List<Alumno>listaAlumnos)
+    private void startProcess()throws AlumnoException
+    {
+        String nombreFichero = "src/main/java/ies/jms/tr24/alumn.json";
+        try
+        {
+
+            String fileContent = FileUtils.readFileToString(new File(nombreFichero), "UTF-8");
+
+            JsonNode rootJsonNode = Json.mapper().readTree(fileContent);
+
+            if (rootJsonNode.isArray())
+            {
+                ArrayNode rootArrayJsonNode = (ArrayNode) rootJsonNode;
+
+                final Iterator<JsonNode> iterator = rootArrayJsonNode.elements();
+
+                while (iterator.hasNext())
+                {
+                    Alumno alumno = new Alumno();
+
+                    final JsonNode alumnoJsonNode = iterator.next();
+
+                    if (alumnoJsonNode.has("nombre"))
+                    {
+                        final JsonNode nombreNode = alumnoJsonNode.get("nombre");
+                        alumno.setNombre(nombreNode.asText());
+                    }
+
+                    if (alumnoJsonNode.has("edad"))
+                    {
+                        final JsonNode edadNode = alumnoJsonNode.get("edad");
+                        alumno.setEdad(Integer.parseInt(edadNode.asText()));
+                    }
+
+                    if (alumnoJsonNode.has("calificacion"))
+                    {
+                        final JsonNode calificacionNode = alumnoJsonNode.get("calificacion");
+                        alumno.setCalificacion(Double.parseDouble(calificacionNode.asText()));
+                    }
+
+                    if (alumnoJsonNode.has("unidadesPendientes"))
+                    {
+                        final JsonNode unidadesPendientesNode = alumnoJsonNode.get("unidadesPendientes");
+                        alumno.setUnidadesPendientes(Boolean.parseBoolean(unidadesPendientesNode.asText()));
+                    }
+
+                    listaAlumnos.add(alumno);
+                }
+            }
+            alumnoFilter(listaAlumnos);
+        }
+        catch (IOException ioException)
+        {
+            LOGGER.error("Error mientras se trataba de leer el fichero " + nombreFichero , ioException);
+            throw new AlumnoException("Error mientras se trataba de leer el fichero " + nombreFichero , ioException);
+
+        }
+    }
+
+    private static void alumnoFilter(List<Alumno>listaAlumnos) throws AlumnoException
     {
         FileWriter fileWriter = null;
         PrintWriter printWriter = null;
-
-        try {
-            fileWriter = new FileWriter("src/main/java/ies/jms/tr24/salida-alumnos.txt");
+        String nombreFicheroSalida = "src/main/java/ies/jms/tr24/salida-alumnos.txt";
+        try
+        {
+            fileWriter = new FileWriter(nombreFicheroSalida);
             printWriter = new PrintWriter(fileWriter);
 
             printWriter.println("ALUMNOS CON UNIDADES PENDIENTES");
             printWriter.println("=======================================");
             listaAlumnos.sort(Comparator.comparing(Alumno::getNombre).reversed());
-            for(Alumno alumno : listaAlumnos){
+            for(Alumno alumno : listaAlumnos)
+            {
                 if(alumno.isUnidadesPendientes())
                 {
                     printWriter.println(alumno);
@@ -95,7 +120,7 @@ public class AlumnoJsonParser
             }
 
             printWriter.println();
-            printWriter.println("COMPETICIONES EN EUROPA E INTERNACIONALES");
+            printWriter.println("NOTA MAS CERCANA A LA MEDIA DE CLASE");
             printWriter.println("=======================================");
 
             printWriter.println(notaMasAlta(listaAlumnos));
@@ -105,17 +130,23 @@ public class AlumnoJsonParser
         }
         catch (IOException fileNotFoundException)
         {
-            fileNotFoundException.printStackTrace();
-        } finally
+            LOGGER.error("No se pudo encontrar el fichero " + nombreFicheroSalida , fileNotFoundException);
+            throw new AlumnoException("No se pudo encontrar el fichero " + nombreFicheroSalida , fileNotFoundException);
+
+        }
+        finally
         {
             if (fileWriter != null)
             {
                 try
                 {
                     fileWriter.close();
-                } catch (IOException ioException)
+
+                }
+                catch (IOException ioException)
                 {
-                    ioException.printStackTrace();
+                    LOGGER.error("No se pudo cerrar FileWriter ", ioException);
+                    throw new AlumnoException("No se pudo cerrar FileWriter ", ioException);
                 }
             }
 
@@ -145,19 +176,18 @@ public class AlumnoJsonParser
 
         double notaMedia = notaMedia(listaAlumnos);
 
-        Alumno alumnoNotaMasCercana = new Alumno();
+        Alumno alumnoNotaMasCercana = listaAlumnos.get(0);
 
-
-        System.out.println(notaMedia);
+        //System.out.println(notaMedia);
         for(Alumno alumno : listaAlumnos)
         {
-            double nota1 = Math.abs(alumno.getCalificacion()-notaMedia);
-            double nota2 = Math.abs(alumnoNotaMasCercana.getCalificacion()-notaMedia);
+            double diferenciaAlumnoNotaMedia = Math.abs(alumno.getCalificacion()-notaMedia);
+            double diferenciaAlumnoMasCercano = Math.abs(alumnoNotaMasCercana.getCalificacion()-notaMedia);
 
-            System.out.println("Siguiente --> "+nota1 + " Nombre: "+ alumno.getNombre());
-            System.out.println("Nota guardada --> "+nota2 );
+            //System.out.println("Siguiente --> "+diferenciaAlumnoNotaMedia + " Nombre: "+ alumno.getNombre());
+            //System.out.println("Nota guardada --> "+diferenciaAlumnoMasCercano );
 
-            if(nota1<nota2)
+            if(diferenciaAlumnoNotaMedia<diferenciaAlumnoMasCercano)
             {
                 alumnoNotaMasCercana = alumno;
 

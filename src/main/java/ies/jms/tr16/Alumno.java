@@ -7,22 +7,31 @@ public class Alumno {
     private double calificacion;
     private boolean unidadesPendientes;
 
-    public Alumno() {
-        this.calificacion= 100;
+    public Alumno()
+    {
+        this.nombre = " ";
+        this.edad = 0;
+        this.calificacion = 0.0;
+        this.unidadesPendientes = false;
     }
 
-    public Alumno(String nombre, int edad, double calificacion, boolean unidadesPendientes) {
+
+
+    public Alumno(String nombre, int edad, double calificacion, boolean unidadesPendientes)
+    {
         this.nombre = nombre;
         this.edad = edad;
         this.calificacion = calificacion;
         this.unidadesPendientes = unidadesPendientes;
     }
 
-    public String getNombre() {
+    public String getNombre()
+    {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre)
+    {
         this.nombre = nombre;
     }
 
