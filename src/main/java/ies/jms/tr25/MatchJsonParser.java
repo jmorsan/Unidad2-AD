@@ -2,9 +2,7 @@ package ies.jms.tr25;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import ies.jms.tr16.Alumno;
 import ies.jms.tr22.Json;
-import ies.jms.tr24.AlumnoException;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,30 +16,30 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-public class CompetitionJsonParser
+public class MatchJsonParser
 {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private List<Alumno> listaAlumnos = new ArrayList<Alumno>();
+    private List<Match> listaMatch = new ArrayList<Match>();
 
     public static void main(String[] args)
     {
-        CompetitionJsonParser alumnoJsonParser = new CompetitionJsonParser();
+        MatchJsonParser matchJsonParser = new MatchJsonParser();
 
         try
         {
-            alumnoJsonParser.startProcess();
+            matchJsonParser.startProcess();
         }
-        catch (AlumnoException alumnoException)
+        catch (MatchException competitionException)
         {
-            alumnoException.printStackTrace();
+            competitionException.printStackTrace();
         }
 
     }
 
-    private void startProcess()throws AlumnoException
+    private void startProcess()throws MatchException
     {
-        String nombreFichero = "src/main/java/ies/jms/tr24/alumn.json";
+        String nombreFichero = "src/main/java/ies/jms/tr25/43.json";
         try
         {
 
@@ -57,31 +55,31 @@ public class CompetitionJsonParser
 
                 while (iterator.hasNext())
                 {
-                    Alumno alumno = new Alumno();
+                    Match match = new Match();
 
-                    final JsonNode alumnoJsonNode = iterator.next();
+                    final JsonNode matchJsonNode = iterator.next();
 
-                    if (alumnoJsonNode.has("nombre"))
+                    if (matchJsonNode.has("competition"))
                     {
-                        final JsonNode nombreNode = alumnoJsonNode.get("nombre");
-                        alumno.setNombre(nombreNode.asText());
+                        final JsonNode competitionNode = matchJsonNode.get("competition");
+                        match.setNombre(nombreNode.asText());
                     }
 
-                    if (alumnoJsonNode.has("edad"))
+                    if (matchJsonNode.has("edad"))
                     {
-                        final JsonNode edadNode = alumnoJsonNode.get("edad");
+                        final JsonNode edadNode = matchJsonNode.get("edad");
                         alumno.setEdad(Integer.parseInt(edadNode.asText()));
                     }
 
-                    if (alumnoJsonNode.has("calificacion"))
+                    if (matchJsonNode.has("calificacion"))
                     {
-                        final JsonNode calificacionNode = alumnoJsonNode.get("calificacion");
+                        final JsonNode calificacionNode = matchJsonNode.get("calificacion");
                         alumno.setCalificacion(Double.parseDouble(calificacionNode.asText()));
                     }
 
-                    if (alumnoJsonNode.has("unidadesPendientes"))
+                    if (matchJsonNode.has("unidadesPendientes"))
                     {
-                        final JsonNode unidadesPendientesNode = alumnoJsonNode.get("unidadesPendientes");
+                        final JsonNode unidadesPendientesNode = matchJsonNode.get("unidadesPendientes");
                         alumno.setUnidadesPendientes(Boolean.parseBoolean(unidadesPendientesNode.asText()));
                     }
 
