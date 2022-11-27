@@ -279,10 +279,7 @@ public class MatchJsonParser
                                 }
                             }
                         }
-
                     }
-
-
 
                     if (matchJsonNode.has("competition_stage"))
                     {
@@ -297,7 +294,6 @@ public class MatchJsonParser
 
                             match.setStage(stage);
                         }
-
                     }
 
                     matchList.add(match);
@@ -339,8 +335,6 @@ public class MatchJsonParser
             printWriter.println("EQUIPOS NACIONALIDAD ENTRENADOR IGUAL A LA NACIONALIDAD DEL EQUIPO ");
             printWriter.println("=====================================================================");
 
-
-
             Map<Integer,Team> teamList = new HashMap();
 
             for(Match match : matchList)
@@ -354,9 +348,7 @@ public class MatchJsonParser
                             teamList.put(manager.getId(),match.getHomeTeam());
 
                         }
-
                     }
-
                 }
 
                 for(Manager manager : match.getAwayTeam().getManager())
@@ -368,7 +360,6 @@ public class MatchJsonParser
                             teamList.put(manager.getId(),match.getAwayTeam());
 
                         }
-
                     }
                 }
             }
@@ -380,8 +371,8 @@ public class MatchJsonParser
             }
 
             printWriter.println();
-            printWriter.println("PARTIDOS DESPUES DE 01-07-2021");
-            printWriter.println("==============================");
+            printWriter.println("PARTIDOS DISPUTADOS DESPUES DEL 01-07-2021");
+            printWriter.println("==========================================");
 
             for(Match match : matchList)
             {
@@ -408,7 +399,6 @@ public class MatchJsonParser
                         printWriter.println("Partido: "+ match.getHomeTeam().getTeamName() + " VS " + match.getAwayTeam().getTeamName() + " Del " + match.getDate() );
 
                     }
-
                 }
                 else
                 {
@@ -416,11 +406,7 @@ public class MatchJsonParser
                     throw new MatchException("No se pudo parsear la fecha ");
 
                 }
-
             }
-
-
-
             printWriter.flush();
 
         }
