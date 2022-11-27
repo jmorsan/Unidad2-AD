@@ -138,12 +138,14 @@ public class MatchJsonParser
                         {
                             final JsonNode managersNode = homeTeamNode.get("managers");
 
-                            ArrayNode managerArrayJsonNode = (ArrayNode) managersNode;
 
-                            final Iterator<JsonNode> managerIterator = managerArrayJsonNode.elements();
 
                             if(managersNode.isArray())
                             {
+                                ArrayNode managerArrayJsonNode = (ArrayNode) managersNode;
+
+                                final Iterator<JsonNode> managerIterator = managerArrayJsonNode.elements();
+
                                 while (managerIterator.hasNext())
                                 {
                                     final JsonNode managerNode = managerIterator.next();
@@ -225,12 +227,12 @@ public class MatchJsonParser
                         {
                             final JsonNode managersNode = awayTeamNode.get("managers");
 
-                            ArrayNode managerArrayJsonNode = (ArrayNode) managersNode;
-
-                            final Iterator<JsonNode> managerIterator = managerArrayJsonNode.elements();
-
                             if(managersNode.isArray())
                             {
+                                ArrayNode managerArrayJsonNode = (ArrayNode) managersNode;
+
+                                final Iterator<JsonNode> managerIterator = managerArrayJsonNode.elements();
+
                                 while (managerIterator.hasNext())
                                 {
                                     final JsonNode managerNode = managerIterator.next();

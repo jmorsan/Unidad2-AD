@@ -2,7 +2,7 @@ EQUIPOS QUE JUGARON LA FINAL EUROCOPA 2020
 =======================================
 Italy VS England
 
-EQUIPOS NACIONALIDAD ENTRENADOR IGUAL A LA NACIONALIDAD DEL EQUIPO 
+ NACIONALIDAD ENTRENADOR NO IGUAL A LA NACIONALIDAD DEL EQUIPO 
 =====================================================================
  Equipo: Switzerland Nacionalidad Equipos: Switzerland Entrenador: Vladimir Petković Nacionalidad Emtrenador: Bosnia and Herzegovina
  Equipo: Hungary Nacionalidad Equipos: Hungary Entrenador: Marco Rossi Nacionalidad Emtrenador: Italy
