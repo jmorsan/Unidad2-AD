@@ -11,16 +11,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class MatchJsonParser
 {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private List<Match> listaMatch = new ArrayList<Match>();
+    private List<Match> matchList = new ArrayList<Match>();
 
     public static void main(String[] args)
     {
@@ -56,72 +55,372 @@ public class MatchJsonParser
                 while (iterator.hasNext())
                 {
                     Match match = new Match();
+                    Stage stage = new Stage();
+                    Season season = new Season();
+                    Team homeTeam = new Team();
+                    Team awayTeam = new Team();
+                    Manager homeManager = new Manager();
+                    Manager awayManager = new Manager();
+                    Country countryHomeManager = new Country();
+                    Country countryAwayManager = new Country();
+                    Country countryHomeTeam = new Country();
+                    Country countryAwayTeam = new Country();
+
+
 
                     final JsonNode matchJsonNode = iterator.next();
 
-                    if (matchJsonNode.has("competition"))
+                    if (matchJsonNode.has("match_date"))
                     {
-                        final JsonNode competitionNode = matchJsonNode.get("competition");
-                        match.setNombre(nombreNode.asText());
+                        final JsonNode matchDateNode = matchJsonNode.get("match_date");
+                        match.setDate(matchDateNode.asText());
                     }
 
-                    if (matchJsonNode.has("edad"))
+
+                    if (matchJsonNode.has("season"))
                     {
-                        final JsonNode edadNode = matchJsonNode.get("edad");
-                        alumno.setEdad(Integer.parseInt(edadNode.asText()));
+                        final JsonNode seasonNode = matchJsonNode.get("season");
+
+                        if(seasonNode.has("season_name"))
+                        {
+
+                            final JsonNode seasonNameNode = seasonNode.get("season_name");
+
+                            season.setSeasonName(seasonNameNode.asText());
+
+                            match.setSeason(season);
+                        }
+
                     }
 
-                    if (matchJsonNode.has("calificacion"))
+
+                    if (matchJsonNode.has("home_team"))
                     {
-                        final JsonNode calificacionNode = matchJsonNode.get("calificacion");
-                        alumno.setCalificacion(Double.parseDouble(calificacionNode.asText()));
+                        final JsonNode homeTeamNode = matchJsonNode.get("home_team");
+
+                        if(homeTeamNode.has("home_team_id"))
+                        {
+
+                            final JsonNode homeTeamNameNode = homeTeamNode.get("home_team_id");
+
+                            homeTeam.setTeamName(homeTeamNameNode.asText());
+
+                            match.setHomeTeam(homeTeam);
+
+                        }
+
+                        if(homeTeamNode.has("home_team_name"))
+                        {
+
+                            final JsonNode homeTeamNameNode = homeTeamNode.get("home_team_name");
+
+                            homeTeam.setTeamName(homeTeamNameNode.asText());
+
+                            match.setHomeTeam(homeTeam);
+
+                        }
+
+                        if(homeTeamNode.has("country"))
+                        {
+                            final JsonNode homeTeamCountryNode = homeTeamNode.get("country");
+
+                            if(homeTeamCountryNode.has("name"))
+                            {
+                                final JsonNode homeTeamCountryNameNode = homeTeamCountryNode.get("name");
+
+                                countryHomeTeam.setName(homeTeamCountryNameNode.asText());
+                                homeTeam.setTeamCountry(countryHomeTeam);
+                                match.setHomeTeam(homeTeam);
+                            }
+                        }
+
+                        if(homeTeamNode.has("managers"))
+                        {
+                            final JsonNode managersNode = homeTeamNode.get("managers");
+
+                            ArrayNode managerArrayJsonNode = (ArrayNode) managersNode;
+
+                            final Iterator<JsonNode> managerIterator = managerArrayJsonNode.elements();
+
+                            if(managersNode.isArray())
+                            {
+                                while (managerIterator.hasNext())
+                                {
+                                    final JsonNode managerNode = managerIterator.next();
+
+                                    if(managerNode.has("name"))
+                                    {
+                                        final JsonNode managerNameNode = managerNode.get("name");
+
+                                        homeManager.setName(managerNameNode.asText());
+
+                                        homeTeam.getManager().add(homeManager);
+
+                                        match.setHomeTeam(homeTeam);
+                                    }
+
+                                    if(managerNode.has("country"))
+                                    {
+                                        final JsonNode managerCountryNode = managerNode.get("country");
+
+                                        if(managerCountryNode.has("name"))
+                                        {
+                                            final JsonNode managerCountryNameNode = managerCountryNode.get("name");
+
+                                            countryHomeManager.setName(managerCountryNameNode.asText());
+
+                                            homeManager.setNameCountry(countryHomeManager);
+
+                                            homeTeam.getManager().add(homeManager);
+
+                                            match.setHomeTeam(homeTeam);
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
                     }
 
-                    if (matchJsonNode.has("unidadesPendientes"))
+                    if (matchJsonNode.has("away_team"))
                     {
-                        final JsonNode unidadesPendientesNode = matchJsonNode.get("unidadesPendientes");
-                        alumno.setUnidadesPendientes(Boolean.parseBoolean(unidadesPendientesNode.asText()));
+                        final JsonNode awayTeamNode = matchJsonNode.get("away_team");
+
+                        if(awayTeamNode.has("away_team_id"))
+                        {
+
+                            final JsonNode awayTeamNameNode = awayTeamNode.get("away_team_id");
+
+                            awayTeam.setTeamName(awayTeamNameNode.asText());
+
+                            match.setAwayTeam(awayTeam);
+                        }
+
+                        if(awayTeamNode.has("away_team_name"))
+                        {
+
+                            final JsonNode awayTeamNameNode = awayTeamNode.get("away_team_name");
+
+                            awayTeam.setTeamName(awayTeamNameNode.asText());
+
+                            match.setAwayTeam(awayTeam);
+                        }
+
+                        if(awayTeamNode.has("country"))
+                        {
+                            final JsonNode awayTeamCountryNode = awayTeamNode.get("country");
+
+                            if(awayTeamCountryNode.has("name"))
+                            {
+                                final JsonNode awayTeamCountryNameNode = awayTeamCountryNode.get("name");
+
+                                countryAwayTeam.setName(awayTeamCountryNameNode.asText());
+                                awayTeam.setTeamCountry(countryAwayTeam);
+                                match.setAwayTeam(awayTeam);
+                            }
+                        }
+
+
+                        if(awayTeamNode.has("managers"))
+                        {
+                            final JsonNode managersNode = awayTeamNode.get("managers");
+
+                            ArrayNode managerArrayJsonNode = (ArrayNode) managersNode;
+
+                            final Iterator<JsonNode> managerIterator = managerArrayJsonNode.elements();
+
+                            if(managersNode.isArray())
+                            {
+                                while (managerIterator.hasNext())
+                                {
+                                    final JsonNode managerNode = managerIterator.next();
+
+                                    if(managerNode.has("id"))
+                                    {
+                                        final JsonNode managerIdNode = managerNode.get("id");
+
+                                        awayManager.setId(Integer.parseInt(managerIdNode.asText()));
+
+                                        awayTeam.getManager().add(awayManager);
+
+                                        match.setAwayTeam(awayTeam);
+                                    }
+
+                                    if(managerNode.has("name"))
+                                    {
+                                        final JsonNode managerNameNode = managerNode.get("name");
+
+                                        awayManager.setName(managerNameNode.asText());
+
+                                        awayTeam.getManager().add(awayManager);
+
+                                        match.setAwayTeam(awayTeam);
+                                    }
+
+                                    if(managerNode.has("country"))
+                                    {
+                                        final JsonNode managerCountryNode = managerNode.get("country");
+
+                                        if(managerCountryNode.has("name"))
+                                        {
+                                            final JsonNode managerCountryNameNode = managerCountryNode.get("name");
+
+                                            countryAwayManager.setName(managerCountryNameNode.asText());
+
+                                            awayManager.setNameCountry(countryAwayManager);
+
+                                            awayTeam.getManager().add(awayManager);
+
+                                            match.setAwayTeam(awayTeam);
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
                     }
 
-                    listaAlumnos.add(alumno);
+
+
+                    if (matchJsonNode.has("competition_stage"))
+                    {
+                        final JsonNode stageNode = matchJsonNode.get("competition_stage");
+
+                        if(stageNode.has("name"))
+                        {
+
+                            final JsonNode stageNameNode = stageNode.get("name");
+
+                            stage.setStageName(stageNameNode.asText());
+
+                            match.setStage(stage);
+                        }
+
+                    }
+
+                    matchList.add(match);
+                    //System.out.println(match.toString());
                 }
             }
-            alumnoFilter(listaAlumnos);
+            matchFilter(matchList);
         }
         catch (IOException ioException)
         {
             LOGGER.error("Error mientras se trataba de leer el fichero " + nombreFichero , ioException);
-            throw new AlumnoException("Error mientras se trataba de leer el fichero " + nombreFichero , ioException);
+            throw new MatchException("Error mientras se trataba de leer el fichero " + nombreFichero , ioException);
 
         }
     }
 
-    private static void alumnoFilter(List<Alumno>listaAlumnos) throws AlumnoException
+    private static void matchFilter(List<Match>matchList) throws MatchException
     {
         FileWriter fileWriter = null;
         PrintWriter printWriter = null;
-        String nombreFicheroSalida = "src/main/java/ies/jms/tr24/salida-alumnos.txt";
+        String nombreFicheroSalida = "src/main/java/ies/jms/tr25/partidos.txt";
         try
         {
             fileWriter = new FileWriter(nombreFicheroSalida);
             printWriter = new PrintWriter(fileWriter);
 
-            printWriter.println("ALUMNOS CON UNIDADES PENDIENTES");
+            printWriter.println("EQUIPOS QUE JUGARON LA FINAL EUROCOPA 2020");
             printWriter.println("=======================================");
-            listaAlumnos.sort(Comparator.comparing(Alumno::getNombre).reversed());
-            for(Alumno alumno : listaAlumnos)
+
+            for(Match match : matchList)
             {
-                if(alumno.isUnidadesPendientes())
+                if(match.getStage().getStageName().equals("Final") && match.getSeason().getSeasonName().equals("2020") )
                 {
-                    printWriter.println(alumno);
+                    printWriter.println(match.getHomeTeam().getTeamName()+" VS "+ match.getAwayTeam().getTeamName());
+
                 }
             }
 
             printWriter.println();
-            printWriter.println("NOTA MAS CERCANA A LA MEDIA DE CLASE");
-            printWriter.println("=======================================");
+            printWriter.println("EQUIPOS NACIONALIDAD ENTRENADOR IGUAL A LA NACIONALIDAD DEL EQUIPO ");
+            printWriter.println("=====================================================================");
 
-            printWriter.println(notaMasAlta(listaAlumnos));
+
+
+            Map<Integer,Team> teamList = new HashMap();
+
+            for(Match match : matchList)
+            {
+                for(Manager manager : match.getHomeTeam().getManager())
+                {
+                    if(match.getHomeTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
+                    {
+                        if(!teamList.containsKey(manager.getId()))
+                        {
+                            teamList.put(manager.getId(),match.getHomeTeam());
+
+                        }
+
+                    }
+
+                }
+
+                for(Manager manager : match.getAwayTeam().getManager())
+                {
+                    if(match.getAwayTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
+                    {
+                        if(!teamList.containsKey(manager.getId()))
+                        {
+                            teamList.put(manager.getId(),match.getAwayTeam());
+
+                        }
+
+                    }
+                }
+            }
+
+            for(Map.Entry<Integer,Team> team : teamList.entrySet()){
+
+                printWriter.println(" Equipo: " + team.getValue().getTeamName() + " Nacionalidad Equipos: " + team.getValue().getTeamCountry().getName() + " Entrenador: "
+                        + team.getValue().getManager().get(0).getName() + " Nacionalidad Emtrenador: " +team.getValue().getManager().get(0).getNameCountry().getName());
+            }
+
+            printWriter.println();
+            printWriter.println("PARTIDOS DESPUES DE 01-07-2021");
+            printWriter.println("==============================");
+
+            for(Match match : matchList)
+            {
+                Date matchDate = null;
+                Date dateFilter = null;
+
+                try
+                {
+                    matchDate = new SimpleDateFormat("yyyy-MM-dd").parse(match.getDate());
+                    dateFilter = new SimpleDateFormat("yyyy-MM-dd").parse("2021-07-01");
+
+
+                }
+                catch (ParseException parseException)
+                {
+                    LOGGER.error("No se pudo parsear la fecha " ,  parseException);
+                    throw new MatchException("No se pudo parsear la fecha  " , parseException);
+                }
+                if(matchDate!=null && dateFilter!=null)
+                {
+
+                    if(matchDate.after(dateFilter) )
+                    {
+                        printWriter.println("Partido: "+ match.getHomeTeam().getTeamName() + " VS " + match.getAwayTeam().getTeamName() + " Del " + match.getDate() );
+
+                    }
+
+                }
+                else
+                {
+                    LOGGER.error("No se pudo parsear la fecha " );
+                    throw new MatchException("No se pudo parsear la fecha ");
+
+                }
+
+            }
+
+
 
             printWriter.flush();
 
@@ -129,7 +428,7 @@ public class MatchJsonParser
         catch (IOException fileNotFoundException)
         {
             LOGGER.error("No se pudo encontrar el fichero " + nombreFicheroSalida , fileNotFoundException);
-            throw new AlumnoException("No se pudo encontrar el fichero " + nombreFicheroSalida , fileNotFoundException);
+            throw new MatchException("No se pudo encontrar el fichero " + nombreFicheroSalida , fileNotFoundException);
 
         }
         finally
@@ -144,7 +443,7 @@ public class MatchJsonParser
                 catch (IOException ioException)
                 {
                     LOGGER.error("No se pudo cerrar FileWriter ", ioException);
-                    throw new AlumnoException("No se pudo cerrar FileWriter ", ioException);
+                    throw new MatchException("No se pudo cerrar FileWriter ", ioException);
                 }
             }
 
@@ -153,47 +452,5 @@ public class MatchJsonParser
                 printWriter.close();
             }
         }
-    }
-
-    private static double notaMedia(List<Alumno>listaAlumnos)
-    {
-        double totalNotas = 0.0;
-
-        for(Alumno alumno : listaAlumnos)
-        {
-            totalNotas += alumno.getCalificacion();
-
-        }
-
-        return totalNotas/listaAlumnos.size();
-
-    }
-
-    private static Alumno notaMasAlta(List<Alumno>listaAlumnos)
-    {
-
-        double notaMedia = notaMedia(listaAlumnos);
-
-        Alumno alumnoNotaMasCercana = listaAlumnos.get(0);
-
-        //System.out.println(notaMedia);
-        for(Alumno alumno : listaAlumnos)
-        {
-            double diferenciaAlumnoNotaMedia = Math.abs(alumno.getCalificacion()-notaMedia);
-            double diferenciaAlumnoMasCercano = Math.abs(alumnoNotaMasCercana.getCalificacion()-notaMedia);
-
-            //System.out.println("Siguiente --> "+diferenciaAlumnoNotaMedia + " Nombre: "+ alumno.getNombre());
-            //System.out.println("Nota guardada --> "+diferenciaAlumnoMasCercano );
-
-            if(diferenciaAlumnoNotaMedia<diferenciaAlumnoMasCercano)
-            {
-                alumnoNotaMasCercana = alumno;
-
-            }
-
-        }
-
-        return alumnoNotaMasCercana;
-
     }
 }
