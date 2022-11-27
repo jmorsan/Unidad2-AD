@@ -301,7 +301,6 @@ public class MatchJsonParser
                     }
 
                     matchList.add(match);
-                    //System.out.println(match.toString());
                 }
             }
             matchFilter(matchList);
