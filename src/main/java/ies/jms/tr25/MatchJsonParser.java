@@ -332,7 +332,7 @@ public class MatchJsonParser
             }
 
             printWriter.println();
-            printWriter.println("EQUIPOS NACIONALIDAD ENTRENADOR IGUAL A LA NACIONALIDAD DEL EQUIPO ");
+            printWriter.println(" NACIONALIDAD ENTRENADOR NO IGUAL A LA NACIONALIDAD DEL EQUIPO ");
             printWriter.println("=====================================================================");
 
             Map<Integer,Team> teamList = new HashMap();
@@ -341,7 +341,7 @@ public class MatchJsonParser
             {
                 for(Manager manager : match.getHomeTeam().getManager())
                 {
-                    if(match.getHomeTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
+                    if(!match.getHomeTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
                     {
                         if(!teamList.containsKey(manager.getId()))
                         {
@@ -353,7 +353,7 @@ public class MatchJsonParser
 
                 for(Manager manager : match.getAwayTeam().getManager())
                 {
-                    if(match.getAwayTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
+                    if(!match.getAwayTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
                     {
                         if(!teamList.containsKey(manager.getId()))
                         {

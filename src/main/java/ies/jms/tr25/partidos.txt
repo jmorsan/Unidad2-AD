@@ -4,32 +4,19 @@ Italy VS England
 
 EQUIPOS NACIONALIDAD ENTRENADOR IGUAL A LA NACIONALIDAD DEL EQUIPO 
 =====================================================================
- Equipo: Finland Nacionalidad Equipos: Finland Entrenador: Markku Kanerva Nacionalidad Emtrenador: Finland
- Equipo: France Nacionalidad Equipos: France Entrenador: Didier Deschamps Nacionalidad Emtrenador: France
- Equipo: Sweden Nacionalidad Equipos: Sweden Entrenador: Jan Olof Andersson Nacionalidad Emtrenador: Sweden
- Equipo: Finland Nacionalidad Equipos: Finland Entrenador: Markku Kanerva Nacionalidad Emtrenador: Finland
- Equipo: North Macedonia Nacionalidad Equipos: Macedonia, Republic of Entrenador: Igor Angelovski Nacionalidad Emtrenador: Macedonia, Republic of
- Equipo: Russia Nacionalidad Equipos: Russia Entrenador: Stanislav Cherchesov Nacionalidad Emtrenador: Russia
- Equipo: Netherlands Nacionalidad Equipos: Netherlands Entrenador: Frank de Boer Nacionalidad Emtrenador: Netherlands
- Equipo: Croatia Nacionalidad Equipos: Croatia Entrenador: Zlatko Dalić Nacionalidad Emtrenador: Croatia
- Equipo: Slovakia Nacionalidad Equipos: Slovakia Entrenador: Štefan Tarkovič Nacionalidad Emtrenador: Slovakia
- Equipo: Italy Nacionalidad Equipos: Italy Entrenador: Roberto Mancini Nacionalidad Emtrenador: Italy
- Equipo: England Nacionalidad Equipos: England Entrenador: Gareth Southgate Nacionalidad Emtrenador: England
- Equipo: Czech Republic Nacionalidad Equipos: Czech Republic Entrenador: Jaroslav Šilhavý Nacionalidad Emtrenador: Czech Republic
- Equipo: Spain Nacionalidad Equipos: Spain Entrenador: Luis Enrique Martínez García Nacionalidad Emtrenador: Spain
- Equipo: Germany Nacionalidad Equipos: Germany Entrenador: Joachim Löw Nacionalidad Emtrenador: Germany
- Equipo: Turkey Nacionalidad Equipos: Turkey Entrenador: Şenol Güneş Nacionalidad Emtrenador: Turkey
- Equipo: Scotland Nacionalidad Equipos: Scotland Entrenador: Steve Clarke Nacionalidad Emtrenador: Scotland
- Equipo: Denmark Nacionalidad Equipos: Denmark Entrenador: Kasper Hjulmand Nacionalidad Emtrenador: Denmark
- Equipo: Ukraine Nacionalidad Equipos: Ukraine Entrenador: Andrii Shevchenko Nacionalidad Emtrenador: Ukraine
- Equipo: Portugal Nacionalidad Equipos: Portugal Entrenador: Fernando Manuel Fernandes da Costa Santos Nacionalidad Emtrenador: Portugal
+ Equipo: Switzerland Nacionalidad Equipos: Switzerland Entrenador: Vladimir Petković Nacionalidad Emtrenador: Bosnia and Herzegovina
+ Equipo: Hungary Nacionalidad Equipos: Hungary Entrenador: Marco Rossi Nacionalidad Emtrenador: Italy
+ Equipo: Poland Nacionalidad Equipos: Poland Entrenador: Paulo Manuel Carvalho de Sousa Nacionalidad Emtrenador: Portugal
+ Equipo: Belgium Nacionalidad Equipos: Belgium Entrenador: Roberto Martínez Montoliú Nacionalidad Emtrenador: Spain
+ Equipo: Switzerland Nacionalidad Equipos: Switzerland Entrenador: Vladimir Petković Nacionalidad Emtrenador: Bosnia and Herzegovina
+ Equipo: Austria Nacionalidad Equipos: Austria Entrenador: Franco Foda Nacionalidad Emtrenador: Germany
 
-PARTIDOS DESPUES DE 01-07-2021
-==============================
-Partido: Belgium VS Italy DEL 2021-07-02
-Partido: England VS Denmark DEL 2021-07-07
-Partido: Italy VS England DEL 2021-07-11
-Partido: Italy VS Spain DEL 2021-07-06
-Partido: Switzerland VS Spain DEL 2021-07-02
-Partido: Ukraine VS England DEL 2021-07-03
-Partido: Czech Republic VS Denmark DEL 2021-07-03
+PARTIDOS DISPUTADOS DESPUES DEL 01-07-2021
+==========================================
+Partido: Belgium VS Italy Del 2021-07-02
+Partido: England VS Denmark Del 2021-07-07
+Partido: Italy VS England Del 2021-07-11
+Partido: Italy VS Spain Del 2021-07-06
+Partido: Switzerland VS Spain Del 2021-07-02
+Partido: Ukraine VS England Del 2021-07-03
+Partido: Czech Republic VS Denmark Del 2021-07-03
