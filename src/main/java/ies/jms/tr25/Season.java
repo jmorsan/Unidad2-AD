@@ -2,27 +2,27 @@ package ies.jms.tr25;
 
 public class Season
 {
-    private String seasonName;
+    private String name;
 
     public Season()
     {
     }
 
-    public String getSeasonName()
+    public String getName()
     {
-        return seasonName;
+        return name;
     }
 
-    public void setSeasonName(String seasonName)
+    public void setName(String name)
     {
-        this.seasonName = seasonName;
+        this.name = name;
     }
 
     @Override
     public String toString()
     {
         return "Season{" +
-                "seasonName='" + seasonName + '\'' +
+                "seasonName='" + name + '\'' +
                 '}';
     }
 }

@@ -5,13 +5,13 @@ public class Manager
 
     private int id;
     private String name;
-    private Country nameCountry;
+    private Country country;
 
     public Manager()
     {
         this.id = -1;
         this.name = "";
-        this.nameCountry = new Country();
+        this.country = new Country();
     }
 
     public int getId() {
@@ -32,14 +32,14 @@ public class Manager
         this.name = name;
     }
 
-    public Country getNameCountry()
+    public Country getCountry()
     {
-        return nameCountry;
+        return country;
     }
 
-    public void setNameCountry(Country nameCountry)
+    public void setCountry(Country country)
     {
-        this.nameCountry = nameCountry;
+        this.country = country;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Manager
         return "Manager{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", nameCountry=" + nameCountry +
+                ", nameCountry=" + country +
                 '}';
     }
 }

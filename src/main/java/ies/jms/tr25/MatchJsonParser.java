@@ -86,7 +86,7 @@ public class MatchJsonParser
 
                             final JsonNode seasonNameNode = seasonNode.get("season_name");
 
-                            season.setSeasonName(seasonNameNode.asText());
+                            season.setName(seasonNameNode.asText());
 
                             match.setSeason(season);
                         }
@@ -103,7 +103,7 @@ public class MatchJsonParser
 
                             final JsonNode homeTeamNameNode = homeTeamNode.get("home_team_id");
 
-                            homeTeam.setTeamName(homeTeamNameNode.asText());
+                            homeTeam.setName(homeTeamNameNode.asText());
 
                             match.setHomeTeam(homeTeam);
 
@@ -114,7 +114,7 @@ public class MatchJsonParser
 
                             final JsonNode homeTeamNameNode = homeTeamNode.get("home_team_name");
 
-                            homeTeam.setTeamName(homeTeamNameNode.asText());
+                            homeTeam.setName(homeTeamNameNode.asText());
 
                             match.setHomeTeam(homeTeam);
 
@@ -129,7 +129,7 @@ public class MatchJsonParser
                                 final JsonNode homeTeamCountryNameNode = homeTeamCountryNode.get("name");
 
                                 countryHomeTeam.setName(homeTeamCountryNameNode.asText());
-                                homeTeam.setTeamCountry(countryHomeTeam);
+                                homeTeam.setCountry(countryHomeTeam);
                                 match.setHomeTeam(homeTeam);
                             }
                         }
@@ -171,7 +171,7 @@ public class MatchJsonParser
 
                                             countryHomeManager.setName(managerCountryNameNode.asText());
 
-                                            homeManager.setNameCountry(countryHomeManager);
+                                            homeManager.setCountry(countryHomeManager);
 
                                             homeTeam.getManager().add(homeManager);
 
@@ -193,7 +193,7 @@ public class MatchJsonParser
 
                             final JsonNode awayTeamNameNode = awayTeamNode.get("away_team_id");
 
-                            awayTeam.setTeamName(awayTeamNameNode.asText());
+                            awayTeam.setName(awayTeamNameNode.asText());
 
                             match.setAwayTeam(awayTeam);
                         }
@@ -203,7 +203,7 @@ public class MatchJsonParser
 
                             final JsonNode awayTeamNameNode = awayTeamNode.get("away_team_name");
 
-                            awayTeam.setTeamName(awayTeamNameNode.asText());
+                            awayTeam.setName(awayTeamNameNode.asText());
 
                             match.setAwayTeam(awayTeam);
                         }
@@ -217,7 +217,7 @@ public class MatchJsonParser
                                 final JsonNode awayTeamCountryNameNode = awayTeamCountryNode.get("name");
 
                                 countryAwayTeam.setName(awayTeamCountryNameNode.asText());
-                                awayTeam.setTeamCountry(countryAwayTeam);
+                                awayTeam.setCountry(countryAwayTeam);
                                 match.setAwayTeam(awayTeam);
                             }
                         }
@@ -269,7 +269,7 @@ public class MatchJsonParser
 
                                             countryAwayManager.setName(managerCountryNameNode.asText());
 
-                                            awayManager.setNameCountry(countryAwayManager);
+                                            awayManager.setCountry(countryAwayManager);
 
                                             awayTeam.getManager().add(awayManager);
 
@@ -292,7 +292,7 @@ public class MatchJsonParser
 
                             final JsonNode stageNameNode = stageNode.get("name");
 
-                            stage.setStageName(stageNameNode.asText());
+                            stage.setName(stageNameNode.asText());
 
                             match.setStage(stage);
                         }
@@ -326,9 +326,9 @@ public class MatchJsonParser
 
             for(Match match : matchList)
             {
-                if(match.getStage().getStageName().equals("Final") && match.getSeason().getSeasonName().equals("2020") )
+                if(match.getStage().getName().equals("Final") && match.getSeason().getName().equals("2020") )
                 {
-                    printWriter.println(match.getHomeTeam().getTeamName()+" VS "+ match.getAwayTeam().getTeamName());
+                    printWriter.println(match.getHomeTeam().getName()+" VS "+ match.getAwayTeam().getName());
 
                 }
             }
@@ -343,7 +343,7 @@ public class MatchJsonParser
             {
                 for(Manager manager : match.getHomeTeam().getManager())
                 {
-                    if(!match.getHomeTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
+                    if(!match.getHomeTeam().getCountry().getName().equals(manager.getCountry().getName()))
                     {
                         if(!teamList.containsKey(manager.getId()))
                         {
@@ -355,7 +355,7 @@ public class MatchJsonParser
 
                 for(Manager manager : match.getAwayTeam().getManager())
                 {
-                    if(!match.getAwayTeam().getTeamCountry().getName().equals(manager.getNameCountry().getName()))
+                    if(!match.getAwayTeam().getCountry().getName().equals(manager.getCountry().getName()))
                     {
                         if(!teamList.containsKey(manager.getId()))
                         {
@@ -368,8 +368,8 @@ public class MatchJsonParser
 
             for(Map.Entry<Integer,Team> team : teamList.entrySet()){
 
-                printWriter.println(" Equipo: " + team.getValue().getTeamName() + " Nacionalidad Equipos: " + team.getValue().getTeamCountry().getName() + " Entrenador: "
-                        + team.getValue().getManager().get(0).getName() + " Nacionalidad Emtrenador: " +team.getValue().getManager().get(0).getNameCountry().getName());
+                printWriter.println(" Equipo: " + team.getValue().getName() + " Nacionalidad Equipos: " + team.getValue().getCountry().getName() + " Entrenador: "
+                        + team.getValue().getManager().get(0).getName() + " Nacionalidad Emtrenador: " +team.getValue().getManager().get(0).getCountry().getName());
             }
 
             printWriter.println();
@@ -398,7 +398,7 @@ public class MatchJsonParser
 
                     if(matchDate.after(dateFilter) )
                     {
-                        printWriter.println("Partido: "+ match.getHomeTeam().getTeamName() + " VS " + match.getAwayTeam().getTeamName() + " Del " + match.getDate() );
+                        printWriter.println("Partido: "+ match.getHomeTeam().getName() + " VS " + match.getAwayTeam().getName() + " Del " + match.getDate() );
 
                     }
                 }

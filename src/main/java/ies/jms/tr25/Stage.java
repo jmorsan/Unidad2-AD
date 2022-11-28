@@ -2,27 +2,27 @@ package ies.jms.tr25;
 
 public class Stage
 {
-    private String stageName;
+    private String name;
 
     public Stage()
     {
     }
 
-    public String getStageName()
+    public String getName()
     {
-        return stageName;
+        return name;
     }
 
-    public void setStageName(String stageName)
+    public void setName(String name)
     {
-        this.stageName = stageName;
+        this.name = name;
     }
 
     @Override
     public String toString()
     {
         return "Stage{" +
-                "name='" + stageName + '\'' +
+                "name='" + name + '\'' +
                 '}';
     }
 }

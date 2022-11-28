@@ -5,39 +5,39 @@ import java.util.List;
 
 public class Team
 {
-    private int teamID;
-    private String teamName;
+    private int id;
+    private String name;
 
     private List<Manager> manager;
 
-    private Country teamCountry;
+    private Country country;
 
     public Team()
     {
-        this.teamID = -1;
-        this.teamName = "";
+        this.id = -1;
+        this.name = "";
         this.manager = new ArrayList<Manager>();
-        this.teamCountry = new Country();
+        this.country = new Country();
     }
 
-    public int getTeamID()
+    public int getId()
     {
-        return teamID;
+        return id;
     }
 
-    public void setTeamID(int teamID)
+    public void setId(int id)
     {
-        this.teamID = teamID;
+        this.id = id;
     }
 
-    public Country getTeamCountry()
+    public Country getCountry()
     {
-        return teamCountry;
+        return country;
     }
 
-    public void setTeamCountry(Country teamCountry)
+    public void setCountry(Country country)
     {
-        this.teamCountry = teamCountry;
+        this.country = country;
     }
 
     public List<Manager> getManager() {
@@ -48,23 +48,23 @@ public class Team
         this.manager = manager;
     }
 
-    public String getTeamName()
+    public String getName()
     {
-        return teamName;
+        return name;
     }
 
-    public void setTeamName(String teamName)
+    public void setName(String name)
     {
-        this.teamName = teamName;
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Team{" +
-                "teamID=" + teamID +
-                ", teamName='" + teamName + '\'' +
+                "teamID=" + id +
+                ", teamName='" + name + '\'' +
                 ", manager=" + manager +
-                ", teamCountry=" + teamCountry +
+                ", teamCountry=" + country +
                 '}';
     }
 }
