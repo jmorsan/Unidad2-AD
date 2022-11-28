@@ -361,6 +361,7 @@ public class MatchJsonParser
                         {
                             teamList.put(manager.getId(),match.getAwayTeam());
 
+
                         }
                     }
                 }
@@ -370,6 +371,7 @@ public class MatchJsonParser
 
                 printWriter.println(" Equipo: " + team.getValue().getName() + " Nacionalidad Equipos: " + team.getValue().getCountry().getName() + " Entrenador: "
                         + team.getValue().getManager().get(0).getName() + " Nacionalidad Emtrenador: " +team.getValue().getManager().get(0).getCountry().getName());
+                System.out.println("Manager ID: "+team.getValue().getManager().get(0).getId());
             }
 
             printWriter.println();

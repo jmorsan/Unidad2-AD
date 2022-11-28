@@ -8,6 +8,11 @@ public class Coche {
     private int kilometros;
     private Motor motor;
 
+    public Coche()
+    {
+
+    }
+
     public Coche(String marca, String modelo, String puertas, int kilometros, Motor motor) {
         this.marca = marca;
         this.modelo = modelo;
@@ -19,6 +24,7 @@ public class Coche {
     public String getMarca() {
         return marca;
     }
+
 
     public void setMarca(String marca) {
         this.marca = marca;

@@ -4,6 +4,11 @@ public class Motor
     private int revoluciones;
     private String tipo;
 
+    public Motor()
+    {
+
+    }
+
     public Motor(int revoluciones, String tipo) {
         this.revoluciones = revoluciones;
         this.tipo = tipo;
